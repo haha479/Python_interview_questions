@@ -53,7 +53,8 @@ PYTHON内部
 .python的垃圾回收机制
 	引用计数, 标记清除, 分代回收
 	引用计数 : 当一个对象被引用时, 它的引用计数就会加一, 为零时, 该对象就被回收了
-	标记清除 : 弥补了引用计数的缺陷, 标记清除可以清除掉循环应用的两个或以上的程序
+	标记清除 : 弥补了引用计数的缺陷, 标记清除可以清除掉循环引用的两个或以上的对象
+	分代回收 : 分代回收是建立在标记清除的技术基础之上的
 
 .迭代器和生成器
 .. 什么是迭代器,生成器
@@ -136,16 +137,13 @@ list.sort()(作用到list列表) 或 sorted(list)(返回一个新列表)
 .python中的pass语句的作用
 	有一些程序思路还没有写好,然后又不能空着不写,所以就用pass来占位
 
-.单例模式
-	使用__new__方法来控制对象的创建,保证对象的唯一性
-
 .read,readline和readlines三者的区别
 	read是读取整个文件,也可以指定读取的长度字节
 	readline是读取下一行
 	readlines是读取整个文件到一个迭代器以供遍历
 
 .python2和python3的主要差异
-	python2中默认使用Ascii编码, Python3默认使用utf-8编码, 但是程序运行时是使用unicode
+	python2中默认使用Ascii编码, Python3默认使用unicode编码, 但是程序运行时是使用unicode
 	python3中print作为函数存在
 
 .python有哪些数据类型
@@ -197,7 +195,7 @@ list.sort()(作用到list列表) 或 sorted(list)(返回一个新列表)
 .删除重复元素
 	集合set(会影响列表里的排列顺序);
 	定义一个新列表,将作用列表遍历,将在新列表中没出现过的元素添加到新列表
-	使用列表推导式 [lis2.append(j) for j in lis1 if j not in lis1]
+	使用列表推导式 [lis2.append(j) for j in lis1 if j not in lis2]
 
 .python的pickling模块
 	pickle.dump()用于写入文件,pickle.load()用来读取文件内容
